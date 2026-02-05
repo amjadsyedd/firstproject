@@ -1,0 +1,268 @@
+JavaScript Core Fundamentals – One Shot Notes
+1. Variables (var, let, const) : A variable is a named memory location used to store data that can be accessed and modified during program execution.
+
+var : var is function-scoped and allows redeclaration and reassignment.
+
+Use case: Old JavaScript codebases.
+Example 1:
+var a = 10;
+var a = 20;
+
+Example 2:
+function test(){
+  var x = 5;
+}
+
+let : let is block-scoped and allows reassignment but not redeclaration.
+
+Use case: Values that change.
+Example 1:
+let count = 1;
+count = 2;
+
+Example 2:
+if(true){
+  let x = 10;
+}
+
+const : const is block-scoped and cannot be reassigned.
+Use case: Fixed values.
+Example 1:
+const PI = 3.14;
+
+Example 2:
+const siteName = "MyApp";
+
+2. Data Types
+A data type specifies what kind of value a variable can hold.
+Primitive Data Types
+Stored by value.
+String – Text
+Number – Numeric values
+Boolean – true / false
+Null – Intentional empty value
+Undefined – Declared but not assigned
+Symbol – Unique identifier
+BigInt – Large numbers
+
+Example 1:
+let name = "Amjad";
+let age = 25;
+let active = true;
+
+Example 2:
+let value = null;
+let city;
+
+Non-Primitive Data Types
+Stored by reference.
+Object
+Array
+Function
+
+Example 1:
+let user = { name: "Amjad", age: 25 };
+
+Example 2:
+let marks = [80, 90, 70];
+
+3. Type Conversion and Type Coercion
+Type Conversion (Explicit)
+
+Manually converting one data type to another.
+Example 1:
+Number("10");
+
+Example 2:
+String(50);
+Type Coercion (Implicit)
+JavaScript automatically converts types.
+
+Example 1:
+"5" + 2   // "52"
+
+Example 2:
+"5" - 2   // 3
+
+4. Operators
+Operators perform operations on values.
+Arithmetic Operators
+Used for math operations.
++, -, *, /, %, **
+
+Example 1:
+10 + 5;
+
+Example 2:
+20 * 2;
+
+Comparison Operators
+Compare values and return boolean.
+==, ===, !=, !==, >, <, >=, <=
+
+Example 1:
+5 == "5";   // true
+
+Example 2:
+5 === "5";  // false
+
+Logical Operators
+Used to combine conditions.
+&&, ||, !
+
+Example 1:
+age > 18 && loggedIn
+
+Example 2:
+isAdmin || isManager
+
+Ternary Operator : Short form of if-else.
+condition ? value1 : value2
+Example 1:
+age > 18 ? "Adult" : "Minor";
+
+Example 2:
+loggedIn ? "Home" : "Login";
+
+Spread Operator (...)
+Expands one array or object into individual elements.
+One → Many
+
+Example 1:
+let arr = [1,2,3];
+let newArr = [...arr,4];
+
+Example 2:
+let a = [10,20];
+let b = [...a];
+
+Rest Operator (...)
+Collects multiple values into a single array.
+Many → One
+
+Example 1:
+function sum(...nums){
+  console.log(nums);
+}
+
+Example 2:
+function order(main, ...extras){
+  console.log(extras);
+}
+
+5. Control Flow
+Control flow decides which code runs and in what order.
+if / else
+Executes code based on condition.
+
+Example 1:
+
+if(age >= 18){
+  console.log("Adult");
+}
+
+Example 2:
+if(score >= 40){
+  console.log("Pass");
+}else{
+  console.log("Fail");
+}
+
+switch
+Used when many fixed conditions exist.
+
+Example 1:
+switch(day){
+  case 1: console.log("Mon"); break;
+}
+
+Example 2:
+switch(role){
+  case "admin": console.log("Full Access");
+}
+
+6. Loops
+Loops repeat code.
+for Loop
+Used when number of iterations is known.
+
+Example 1:
+for(let i=0;i<5;i++){
+  console.log(i);
+}
+
+
+Example 2:
+
+for(let i=1;i<=3;i++){
+  console.log("Hello");
+}
+
+while Loop
+Runs while condition is true.
+Example 1:
+let i=0;
+while(i<3){
+  i++;
+}
+
+Example 2:
+let x=5;
+while(x>0){
+  x--;
+}
+
+do-while Loop
+Runs at least once.
+Example 1:
+let i=0;
+do{
+  i++;
+}while(i<3);
+
+
+Example 2:
+let n=1;
+do{
+  n++;
+}while(n<=2);
+
+break
+Stops loop completely.
+Example 1:
+for(let i=1;i<=5;i++){
+  if(i==3) break;
+}
+
+Example 2:
+while(true){
+  break;
+}
+
+continue
+Skips current iteration.
+Example 1:
+for(let i=1;i<=5;i++){
+  if(i==3) continue;
+  console.log(i);
+}
+
+Example 2:
+for(let i=1;i<=5;i++){
+  if(i%2==0) continue;
+  console.log(i);
+}
+
+7. Real-Time Combined Example
+
+Shopping Cart Total
+const prices = [100,200,300];
+let total = 0;
+
+for(let p of prices){
+  total += p;
+}
+
+let discount = total > 500 ? 50 : 0;
+let finalAmount = total - discount;
+console.log(finalAmount);
